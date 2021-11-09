@@ -1,0 +1,26 @@
+# Guppy QTL Cross metadata just males
+crosstype: f2
+geno: lepmap_phased_genos_FEMALE_allchr_YHF5QM6_informative.csv
+pheno: female_phenotypes_qtl2_format_YHF5QM6.csv
+phenocovar: female_qtl2_phenocovar.csv
+covar: female_qtl2_covar_YHF5QM6.csv
+gmap: lepmap_phased_genos_gmap_YHF5QM6_informative.csv
+pmap: lepmap_phased_genos_gmap_YHF5QM6_informative.csv
+alleles:
+- L
+- H
+genotypes:
+  LL: 1
+  HL: 2
+  HH: 3
+sex:
+  covar: sex
+  F: female
+cross_info:
+  covar: cross_direction
+  (LxH)x(LxH): 0
+  (HxL)x(HxL): 1
+x_chr: chr24
+na.strings:
+- '-'
+- NA
