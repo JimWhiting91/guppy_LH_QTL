@@ -34,14 +34,14 @@ for(i in 1:3){
       tmp[tmp$Dry2 > 0.04,"Dry2"] <- NA
     }
     
-    sum(as.numeric(tmp[,paste0("Dry",i)]))/sum(as.numeric(tmp[,paste0("Size",i)]))
+    sum(as.numeric(tmp[,paste0("Dry",i)]),na.rm = T)/sum(as.numeric(tmp[,paste0("Size",i)]),na.rm = T)
   })
 
   litter_mat[,i+1] <- dry_mean  
 }
 
 colnames(litter_mat) <- c("inds",paste0("Dry_Mean",1:3))
-litter_mat <- data.frame(litter_mat)
+litter_mat <- unique(data.frame(litter_mat))
 
 # Check final distributions
 hist(log(litter_mat$Dry_Mean1))
@@ -49,15 +49,16 @@ hist(log(litter_mat$Dry_Mean2))
 
 # Visualise together
 plot(log(litter_mat$Dry_Mean1)~log(litter_mat$Dry_Mean2))
-cor.test(log(litter_mat$Dry_Mean1),log(litter_mat$Dry_Mean2))
+cor.test(litter_mat$Dry_Mean1,litter_mat$Dry_Mean2,method="spearman")
 
 # Get the clean data
-clean_phenos <- read.csv("data/qtl_female_phenotypes_clean.csv")
+clean_phenos <- read.csv("data_old/qtl_female_phenotypes_clean.csv")
 
 # Visualise interbrood vs brood size
 plot(clean_phenos$interbrood,clean_phenos$first_brood_size)
 
 # Merge them
+litter_mat$ID <- litter_mat$inds
 for(i in 1:nrow(clean_phenos)){
   print(i)
   clean_phenos$dry_offspring_weight_1[i] <- litter_mat[litter_mat$inds == as.character(clean_phenos$ID[i]),"Dry_Mean1"]
