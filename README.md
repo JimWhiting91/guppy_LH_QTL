@@ -5,12 +5,12 @@ Associated scripts and data to accompany:
 This study investigated the genetic architecture of guppy life history traits that are known to evolve rapidly and repeatedly across natural populations under high- and low-predation in northern Trinidad. The repository includes scripts for linkage-mapping, phenotype analyses, GCTA estimates of heritability and QTL scans.
 
 ### Author Contact Information
-james.whiting@ucalgary.ca
-b.fraser@exeter.ac.uk
+ * Jim Whiting - james.whiting@ucalgary.ca
+ * Bonnie Fraser - b.fraser@exeter.ac.uk
 
 ### Usage and license information
 If you use or are inspired by code in this repository please cite the following work or contact me about how to cite.
-Whiting et al. (2021) *bioRxiv* [doi_link](https://doi.org/10.1101/2021.03.18.435980)
+Whiting et al. (2021) *bioRxiv* [Preprint manuscript](https://doi.org/10.1101/2021.03.18.435980)
 
 ---
 # Environment setup
